@@ -1,0 +1,251 @@
+@import './conf';
+
+.intro {
+  background: white;
+  background-image: url('/illustration-working.svg');
+  background-repeat: no-repeat;
+  background-position: 95% 25%;
+
+  width: 100%;
+  height: 45rem;
+
+  > div {
+    @include margin-page;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-end;
+    position: relative;
+
+
+    img {
+      position: absolute;
+      right: -15rem;
+      top: 5rem;
+    }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-top: 10rem;
+      max-width: 40rem;
+      z-index: 2;
+
+
+      p {
+        font-size: 1.5rem;
+        color: var(--grayish-violet);
+
+        margin: 1.5rem 0 2.5rem 0;
+      }
+    }
+  }
+
+  @media #{$BREAKPOINT-TABLET-LAND} {
+    height: auto;
+    margin-bottom: 8rem;
+
+    background-position: 15% 25%;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      .texts {
+        padding-top: 25rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+
+  }
+
+
+
+  @media #{$BREAKPOINT-MOBILE} {
+    height: auto;
+    margin-bottom: 2rem;
+
+    background-position: 15% 25%;
+
+    div {
+      .texts {
+        padding-top: 35rem;
+
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+}
+
+.content {
+  background: #eeeff5;
+
+  .shortener {
+    transform: translateY(-50%);
+  }
+
+  .resultsContainer {
+    .urlContainer {
+      @include margin-page;
+
+      height: 4.5rem;
+
+      padding: 0 1.5rem 0 2rem;
+
+      background: white;
+      border-radius: .5rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 1rem;
+
+      p {
+        flex: 1;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        margin-right: 2rem;
+      }
+
+      span {
+        color: var(--cyan);
+        margin-right: 1.5rem;
+      }
+
+      button {
+        height: 2.5rem;
+        width: 6.25rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: none;
+        border-radius: .5rem;
+        background: var(--cyan);
+        color: white;
+
+        font-weight: 500;
+        font-size: 1.125rem;
+        font-family: 'Poppins', sans-serif;
+
+        transition: all .2s;
+
+        > span {
+          color: white;
+          margin: 0;
+        }
+
+        &:hover {
+          filter: brightness(1.1);
+          cursor: pointer;
+        }
+
+        &:focus {
+          background: var(--dark-violet);
+
+          span {
+            display: none;
+            visibility: hidden;
+          }
+
+          &:focus::after {
+            content: 'Copied!';
+          }
+        }
+      }
+    }
+  }
+
+  .details {
+    @include margin-page;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 2rem;
+
+    .cards {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin: 5rem 0 ;
+      width: 100%;
+    }
+  }
+
+  @media #{$BREAKPOINT-TABLET-LAND} {
+    .details {
+      text-align: center;
+    }
+  }
+
+
+  @media #{$BREAKPOINT-MOBILE} {
+    .shortener {
+      transform: none;
+    }
+
+    .resultsContainer {
+      .urlContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        font-size: 1rem;
+
+        height: auto;
+        padding: 1rem;
+
+        p {
+          width: 100%;
+          margin: 0;
+          padding-bottom: .5rem;
+          border-bottom: 1px solid var(--gray);
+        }
+
+        span {
+          padding: .5rem 0;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+
+    .details {
+      text-align: center;
+    }
+  }
+
+}

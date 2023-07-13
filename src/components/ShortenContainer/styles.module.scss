@@ -1,0 +1,64 @@
+@import '../../styles/sass/conf';
+
+.container {
+  @include margin-page;
+
+  width: 100%;
+  height: 10rem;
+
+  background: var(--dark-violet);
+  background-image: url('/bg-shorten-desktop.svg');
+
+  border-radius: .5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 4rem;
+
+  button {
+    height: 4rem;
+    width: 10.5rem;
+
+    background: var(--cyan);
+    color: white;
+    border: none;
+    border-radius: .5rem;
+
+    font-weight: 500;
+    font-size: 1.125rem;
+    font-family: 'Poppins', sans-serif;
+
+    transition: all .2s;
+
+    &:hover {
+      filter: brightness(1.1);
+      cursor: pointer;
+    }
+  }
+
+  @media #{$BREAKPOINT-TABLET-LAND} {
+    @include margin-page;
+  }
+
+
+  @media #{$BREAKPOINT-MOBILE} {
+    @include margin-page;
+
+
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+
+
+    background-image: url('/bg-shorten-mobile.svg');
+
+
+    button {
+      width: 100%;
+    }
+
+  }
+
+}

@@ -1,0 +1,148 @@
+@import '../../styles/sass/conf';
+
+.cards{
+  @include margin-page;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+
+  margin: 7rem 0 5rem 0;
+
+  .bar {
+    position: absolute;
+    height: .5rem;
+    width: 75%;
+    background: var(--cyan);
+
+  }
+
+
+  .card {
+    height: 16.75rem;
+    width: 21.875rem;
+
+    background: white;
+    border-radius: .5rem;
+
+    position: relative;
+
+    margin: 0 auto;
+
+    .badge {
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 50%;
+
+      background: var(--dark-violet);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      transform: translateY(-50%);
+    }
+
+    .content {
+      padding: 3.75rem 2rem;
+
+      p {
+        font-size: 1rem;
+        padding-top: 1.5rem;
+        color: var(--grayish-violet);
+      }
+    }
+
+    &:nth-child(2) {
+      transform: translateY(-2.5rem);
+    }
+
+    &:last-child {
+      transform: translateY(2.5rem);
+    }
+
+
+    &:not(:last-child) {
+      margin-right: 2.5rem;
+    }
+  }
+
+  @media #{$BREAKPOINT-TABLET-LAND} {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem auto;
+
+    width: 100%;
+
+    .bar {
+      width: 0.5rem;
+      height: 70%;
+
+      top: 5rem;
+    }
+
+    .card {
+      margin: 0;
+      margin-top: 2rem;
+      height: 100%;
+
+      .badge {
+        top: -15%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media #{$BREAKPOINT-MOBILE} {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 3rem;
+
+    width: 100%;
+
+    .bar {
+      width: 0.5rem;
+      height: 70%;
+
+      top: 5rem;
+    }
+
+    .card {
+      width: 100%;
+
+      margin: 3rem 0;
+
+      .badge {
+        top: -15%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &:nth-child(2) {
+        transform: none;
+      }
+
+      &:last-child {
+        transform: none;
+      }
+
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+  }
+
+}
+
